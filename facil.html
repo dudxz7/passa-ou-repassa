@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta - Fácil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/passa2013.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Roleta de Perguntas - Nível Fácil</h1><br>
+        <div class="roleta">
+            <div class="pergunta" id="pergunta"></div>
+            <div id="opcoes" class="opcoes"></div>
+        </div>
+        <button id="spinBtn">Girar a Roleta</button>
+        <a href="dificuldade.html" class="back-link">
+            <img src="img/anterior.png" alt="Voltar" class="back-icon"> Voltar
+        </a>
+    </div>
+
+    <script>
+        const perguntasFacil = [
+            {
+                pergunta: "Qual é a capital do Brasil?",
+                opcoes: ["A) Buenos Aires", "B) Brasília", "C) Rio de Janeiro", "D) São Paulo"]
+            },
+            {
+                pergunta: "Quem pintou a Mona Lisa?",
+                opcoes: ["A) Vincent van Gogh", "B) Pablo Picasso", "C) Leonardo da Vinci", "D) Michelangelo"]
+            },
+            {
+                pergunta: "Qual é o maior planeta do sistema solar?",
+                opcoes: ["A) Marte", "B) Júpiter", "C) Saturno", "D) Vênus"]
+            },
+            {
+                pergunta: "Em que ano o homem pisou na Lua pela primeira vez?",
+                opcoes: ["A) 1969", "B) 1971", "C) 1959", "D) 1981"]
+            },
+            {
+                pergunta: "Qual é o símbolo químico do oxigênio?",
+                opcoes: ["A) O", "B) O2", "C) H", "D) O3"]
+            },
+            {
+                pergunta: "Quem escreveu 'Dom Casmurro'?",
+                opcoes: ["A) Jorge Amado", "B) Machado de Assis", "C) Clarice Lispector", "D) Monteiro Lobato"]
+            },
+            {
+                pergunta: "O que é a água composta quimicamente?",
+                opcoes: ["A) H2O", "B) CO2", "C) O2", "D) H2SO4"]
+            },
+            {
+                pergunta: "Qual é o maior oceano do mundo?",
+                opcoes: ["A) Oceano Atlântico", "B) Oceano Índico", "C) Oceano Ártico", "D) Oceano Pacífico"]
+            },
+            {
+                pergunta: "Qual é o símbolo químico do ouro?",
+                opcoes: ["A) Au", "B) Ag", "C) Fe", "D) Cu"]
+            },
+            {
+                pergunta: "Qual é a cor da bandeira da França?",
+                opcoes: ["A) Azul, branco e vermelho", "B) Verde e amarelo", "C) Vermelho e preto", "D) Azul e verde"]
+            },
+            {
+                pergunta: "Quem foi o primeiro presidente dos Estados Unidos?",
+                opcoes: ["A) George Washington", "B) Abraham Lincoln", "C) Thomas Jefferson", "D) John Adams"]
+            },
+            {
+                pergunta: "O que é o sol?",
+                opcoes: ["A) Uma estrela", "B) Um planeta", "C) Uma lua", "D) Uma estrela cadente"]
+            },
+            {
+                pergunta: "Em que continente está localizado o Egito?",
+                opcoes: ["A) África", "B) Ásia", "C) Europa", "D) América"]
+            },
+            {
+                pergunta: "Qual é o maior animal do mundo?",
+                opcoes: ["A) Elefante", "B) Baleia azul", "C) Girafa", "D) Tubarão branco"]
+            },
+            {
+                pergunta: "Qual é o nome do presidente do Brasil?",
+                opcoes: ["A) Jair Bolsonaro", "B) Michel Temer", "C) Luiz Inácio Lula da Silva", "D) Dilma Rousseff"]
+            },
+            {
+                pergunta: "O que é a fotossíntese?",
+                opcoes: ["A) Processo de produção de oxigênio pelas plantas", "B) Processo de respiração das plantas", "C) Processo de crescimento das plantas", "D) Processo de digestão das plantas"]
+            },
+            {
+                pergunta: "Qual é o número de continentes no planeta?",
+                opcoes: ["A) 5", "B) 6", "C) 7", "D) 8"]
+            },
+            {
+                pergunta: "Em que país nasceu o inventor do telefone, Alexander Graham Bell?",
+                opcoes: ["A) Inglaterra", "B) Estados Unidos", "C) Canadá", "D) Alemanha"]
+            },
+            {
+                pergunta: "Qual é o nome do maior rio do mundo?",
+                opcoes: ["A) Rio Nilo", "B) Rio Amazonas", "C) Rio Mississippi", "D) Rio Yangtze"]
+            },
+            {
+                pergunta: "Qual é o órgão responsável pela produção de insulina no corpo humano?",
+                opcoes: ["A) Fígado", "B) Pâncreas", "C) Rins", "D) Pulmões"]
+            },
+            {
+                pergunta: "Qual é o animal mais rápido do mundo?",
+                opcoes: ["A) Guepardo", "B) Águia", "C) Leopardo", "D) Antílope"]
+            },
+            {
+                pergunta: "Quem descobriu a teoria da evolução das espécies?",
+                opcoes: ["A) Isaac Newton", "B) Charles Darwin", "C) Albert Einstein", "D) Louis Pasteur"]
+            },
+            {
+                pergunta: "Qual é a capital da França?",
+                opcoes: ["A) Madrid", "B) Roma", "C) Paris", "D) Londres"]
+            },
+            {
+                pergunta: "Quem é o autor de 'Harry Potter'?",
+                opcoes: ["A) J.K. Rowling", "B) C.S. Lewis", "C) J.R.R. Tolkien", "D) Suzanne Collins"]
+            },
+            {
+                pergunta: "Qual é o menor continente do mundo?",
+                opcoes: ["A) Ásia", "B) Europa", "C) Oceania", "D) África"]
+            },
+            {
+                pergunta: "Qual é a cor do céu durante o dia?",
+                opcoes: ["A) Vermelho", "B) Azul", "C) Amarelo", "D) Branco"]
+            },
+            {
+                pergunta: "Qual é o nome do famoso monumento que fica na Índia e é considerado uma das sete maravilhas do mundo moderno?",
+                opcoes: ["A) Machu Picchu", "B) Cristo Redentor", "C) Taj Mahal", "D) Coliseu"]
+            },
+            {
+                pergunta: "Qual é o principal gás responsável pelo efeito estufa?",
+                opcoes: ["A) Oxigênio", "B) Nitrogênio", "C) Carbono", "D) Dióxido de carbono"]
+            },
+            {
+                pergunta: "Quantos segundos há em um minuto?",
+                opcoes: ["A) 60", "B) 100", "C) 120", "D) 240"]
+            },
+            {
+                pergunta: "Qual é a moeda oficial dos Estados Unidos?",
+                opcoes: ["A) Euro", "B) Libra", "C) Dólar", "D) Peso"]
+            }
+        ];
+
+        const spinBtn = document.getElementById('spinBtn');
+        const perguntaElement = document.getElementById('pergunta');
+        const opcoesElement = document.getElementById('opcoes');
+
+        spinBtn.addEventListener('click', () => {
+            const perguntaRandom = perguntasFacil[Math.floor(Math.random() * perguntasFacil.length)];
+            perguntaElement.textContent = perguntaRandom.pergunta;
+            opcoesElement.innerHTML = perguntaRandom.opcoes.map(opcao => `<p>${opcao}</p>`).join('');
+        });
+    </script>
+</body>
+</html>

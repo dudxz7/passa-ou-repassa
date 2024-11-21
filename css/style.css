@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+
+/* Resetando os estilos */
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.central-image {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: rgba(25, 25, 25);
+    border: none;
+    color: whitesmoke;
+    font-weight: 700;
+    border-radius: 1000px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 10px 0;
+    width: 200px;
+}
+
+button img {
+    margin-right: 10px;
+    width: 20px;
+    height: auto;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    height: 107%;
+    width: 102%;
+    border-radius: 1000px;
+    z-index: -1;
+}
+
+/* Efeitos de hover */
+button:hover {
+    z-index: 0;
+    box-shadow: 40px 0 100px #fbff03, -40px 0 100px #0f1fff;
+    color: snow;
+    font-weight: 700;
+}
+
+/* Gradientes e estilos de botão para dificuldade */
+.easy {
+    background: linear-gradient(90deg, #4caf50, #2e7d32);
+}
+
+.medium {
+    background: linear-gradient(90deg, #ff9800, #ff5722);
+}
+
+.hard {
+    background: linear-gradient(90deg, #f44336, #e91e63);
+}
+
+.random {
+    background: linear-gradient(90deg, #2196f3, #03a9f4);
+}
+
+/* Hover específico para cada tipo de botão */
+.easy:hover {
+    box-shadow: 40px 0 100px #4caf50, -40px 0 100px #2e7d32;
+    color: snow;
+    font-weight: 700;
+}
+
+.medium:hover {
+    box-shadow: 40px 0 100px #ff9800, -40px 0 100px #ff5722;
+    color: snow;
+    font-weight: 700;
+}
+
+.hard:hover {
+    box-shadow: 40px 0 100px #f44336, -40px 0 100px #e91e63;
+    color: snow;
+    font-weight: 700;
+}
+
+.random:hover {
+    box-shadow: 40px 0 100px #2196f3, -40px 0 100px #03a9f4;
+    color: snow;
+    font-weight: 700;
+}
+
+/* Estilo para o link de voltar */
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.back-icon {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.back-link:hover {
+    color: #0299be;
+}
+
+/* Ajustando o botão principal "Vamos jogar" */
+button.central-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+button.central-button img {
+    width: 20px;
+    height: auto;
+}
+
+/* Ajustando o título da página de dificuldade */
+.difficulty-header {
+    color: white;
+    padding: 22px;
+}
+a {
+    text-decoration: none;
+}

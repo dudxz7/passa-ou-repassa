@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta - Aleatório</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/passa2013.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Roleta de Perguntas - Aleatório</h1><br>
+        <div class="roleta">
+            <div class="pergunta" id="pergunta"></div>
+        </div>
+        <button id="spinBtn">Girar a Roleta</button>
+        <a href="dificuldade.html" class="back-link">
+            <img src="img/anterior.png" alt="Voltar" class="back-icon"> Voltar
+        </a>
+    </div>
+
+    <script>
+        const perguntasAleatorio = [
+            // 10 Fácil
+            {
+                pergunta: "Qual é a capital do Brasil?",
+                opcoes: ["A) São Paulo", "B) Rio de Janeiro", "C) Brasília", "D) Salvador"]
+            },
+            {
+                pergunta: "Quantos estados o Brasil possui?",
+                opcoes: ["A) 24", "B) 26", "C) 27", "D) 30"]
+            },
+            {
+                pergunta: "Qual é o maior animal terrestre?",
+                opcoes: ["A) Elefante", "B) Girafa", "C) Baleia", "D) Tigre"]
+            },
+            {
+                pergunta: "Em que continente está localizada a França?",
+                opcoes: ["A) Ásia", "B) Europa", "C) África", "D) Oceania"]
+            },
+            {
+                pergunta: "Qual é o maior oceano do mundo?",
+                opcoes: ["A) Atlântico", "B) Índico", "C) Ártico", "D) Pacífico"]
+            },
+            {
+                pergunta: "Quem pintou a Mona Lisa?",
+                opcoes: ["A) Leonardo da Vinci", "B) Pablo Picasso", "C) Michelangelo", "D) Salvador Dalí"]
+            },
+            {
+                pergunta: "Quantos meses tem um ano?",
+                opcoes: ["A) 10", "B) 11", "C) 12", "D) 13"]
+            },
+            {
+                pergunta: "O que é o calor?",
+                opcoes: ["A) Movimento de partículas", "B) Aumento de pressão", "C) Diminuição de temperatura", "D) Substância quente"]
+            },
+            {
+                pergunta: "Em que país está localizada a Torre Eiffel?",
+                opcoes: ["A) França", "B) Itália", "C) Alemanha", "D) Espanha"]
+            },
+            {
+                pergunta: "Quem é conhecido como o 'Pai da Aviação'?",
+                opcoes: ["A) Santos Dumont", "B) Alberto Santos", "C) Wright", "D) Leonardo da Vinci"]
+            },
+            // 10 Médio
+            {
+                pergunta: "Qual é a teoria que explica a origem do universo?",
+                opcoes: ["A) Teoria do Big Bang", "B) Teoria da Relatividade", "C) Teoria da Evolução", "D) Teoria da Gravidade"]
+            },
+            {
+                pergunta: "Qual é o maior número primo conhecido?",
+                opcoes: ["A) 2", "B) 3", "C) 29", "D) 57"]
+            },
+            {
+                pergunta: "Em que ano foi criada a Organização das Nações Unidas (ONU)?",
+                opcoes: ["A) 1940", "B) 1945", "C) 1950", "D) 1960"]
+            },
+            {
+                pergunta: "Quem formulou as Leis do Movimento?",
+                opcoes: ["A) Isaac Newton", "B) Albert Einstein", "C) Marie Curie", "D) Nikola Tesla"]
+            },
+            {
+                pergunta: "Qual é o conceito de entropia na física?",
+                opcoes: ["A) Ordem", "B) Desordem", "C) Energia", "D) Movimento"]
+            },
+            {
+                pergunta: "Em que país foi assinada a Declaração Universal dos Direitos Humanos?",
+                opcoes: ["A) EUA", "B) França", "C) Suíça", "D) Brasil"]
+            },
+            {
+                pergunta: "Quem desenvolveu a teoria das cordas?",
+                opcoes: ["A) Stephen Hawking", "B) Brian Greene", "C) Albert Einstein", "D) Carl Sagan"]
+            },
+            {
+                pergunta: "Qual é o autor de 'Em Busca do Tempo Perdido'?",
+                opcoes: ["A) Flaubert", "B) Marcel Proust", "C) Dostoiévski", "D) Dickens"]
+            },
+            {
+                pergunta: "O que é a teoria do multiverso?",
+                opcoes: ["A) Existe um único universo", "B) Existem vários universos", "C) O universo está em expansão", "D) O universo é estático"]
+            },
+            {
+                pergunta: "Em que ano o homem pisou pela primeira vez na Lua?",
+                opcoes: ["A) 1967", "B) 1968", "C) 1969", "D) 1970"]
+            },
+            // 10 Difícil
+            {
+                pergunta: "Quem é o pai da psicanálise?",
+                opcoes: ["A) Carl Jung", "B) Sigmund Freud", "C) Abraham Maslow", "D) John Watson"]
+            },
+            {
+                pergunta: "O que é a teoria da relatividade geral de Einstein?",
+                opcoes: ["A) Estudo da aceleração", "B) Estudo da gravidade", "C) Estudo da luz", "D) Estudo da velocidade"]
+            },
+            {
+                pergunta: "Quem foi o primeiro a desenvolver o conceito de átomo?",
+                opcoes: ["A) Demócrito", "B) Dalton", "C) Rutherford", "D) Bohr"]
+            },
+            {
+                pergunta: "O que significa a palavra 'bioma'?",
+                opcoes: ["A) Conjunto de espécies", "B) Conjunto de organismos", "C) Ambiente natural com características específicas", "D) Equilíbrio ecológico"]
+            },
+            {
+                pergunta: "Qual é a fórmula para calcular a energia cinética?",
+                opcoes: ["A) E = mc²", "B) E = mv²/2", "C) E = mgh", "D) E = P * t"]
+            },
+            {
+                pergunta: "Qual é o nome do maior buraco negro conhecido?",
+                opcoes: ["A) Sagittarius A*", "B) VY Canis Majoris", "C) M87", "D) Cygnus X-1"]
+            },
+            {
+                pergunta: "Quem foi o primeiro ser humano a viajar para o espaço?",
+                opcoes: ["A) Neil Armstrong", "B) Valentina Tereshkova", "C) Yuri Gagarin", "D) Buzz Aldrin"]
+            },
+            {
+                pergunta: "Quem desenvolveu a teoria da evolução das espécies?",
+                opcoes: ["A) Charles Darwin", "B) Gregor Mendel", "C) Thomas Malthus", "D) Lamarck"]
+            },
+            {
+                pergunta: "Qual é o nome da partícula subatômica descoberta por J.J. Thomson?",
+                opcoes: ["A) Próton", "B) Nêutron", "C) Elétron", "D) Quark"]
+            },
+            {
+                pergunta: "Quem pintou o famoso quadro 'A Última Ceia'?",
+                opcoes: ["A) Leonardo da Vinci", "B) Michelangelo", "C) Raphael", "D) Caravaggio"]
+            }
+        ];
+
+        const spinBtn = document.getElementById('spinBtn');
+        const perguntaElement = document.getElementById('pergunta');
+
+        spinBtn.addEventListener('click', () => {
+            const perguntaRandom = perguntasAleatorio[Math.floor(Math.random() * perguntasAleatorio.length)];
+            perguntaElement.innerHTML = `<strong>${perguntaRandom.pergunta}</strong><br>${perguntaRandom.opcoes.join('<br>')}`;
+        });
+    </script>
+</body>
+</html>

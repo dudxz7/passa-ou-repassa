@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta - Difícil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/passa2013.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Roleta de Perguntas - Nível Difícil</h1><br>
+        <div class="roleta">
+            <div class="pergunta" id="pergunta"></div>
+            <div id="opcoes" class="opcoes"></div>
+        </div>
+        <button id="spinBtn">Girar a Roleta</button>
+        <a href="dificuldade.html" class="back-link">
+            <img src="img/anterior.png" alt="Voltar" class="back-icon"> Voltar
+        </a>
+    </div>
+
+    <script>
+        const perguntasDificil = [
+            {
+                pergunta: "Qual é o nome do primeiro satélite artificial lançado pela União Soviética?",
+                opcoes: ["A) Sputnik 1", "B) Vostok 1", "C) Luna 1", "D) Mir"]
+            },
+            {
+                pergunta: "Quem foi o matemático que formulou o teorema fundamental do cálculo?",
+                opcoes: ["A) Pierre-Simon Laplace", "B) Carl Friedrich Gauss", "C) Isaac Newton", "D) Albert Einstein"]
+            },
+            {
+                pergunta: "Qual é o nome da primeira mulher a ganhar o Prêmio Nobel?",
+                opcoes: ["A) Marie Curie", "B) Rosalind Franklin", "C) Ada Lovelace", "D) Dorothy Hodgkin"]
+            },
+            {
+                pergunta: "Qual é a maior lua de Saturno?",
+                opcoes: ["A) Europa", "B) Titã", "C) Ganimedes", "D) Calisto"]
+            },
+            {
+                pergunta: "Em qual país foi fundada a primeira universidade do mundo?",
+                opcoes: ["A) Itália", "B) França", "C) Marrocos", "D) Egito"]
+            },
+            {
+                pergunta: "Quem foi o filósofo grego que escreveu 'A República'?",
+                opcoes: ["A) Aristóteles", "B) Platão", "C) Sócrates", "D) Epicuro"]
+            },
+            {
+                pergunta: "Qual é o nome do maior vulcão ativo do mundo?",
+                opcoes: ["A) Monte Etna", "B) Monte St. Helens", "C) Kilauea", "D) Mauna Loa"]
+            },
+            {
+                pergunta: "Quem foi o líder da Revolução Russa de 1917?",
+                opcoes: ["A) Leon Trotsky", "B) Josef Stalin", "C) Mikhail Gorbachev", "D) Vladimir Lenin"]
+            },
+            {
+                pergunta: "O que é a ‘Teoria das Cordas’?",
+                opcoes: ["A) Teoria sobre o comportamento das partículas subatômicas", "B) Teoria da relatividade geral", "C) Teoria sobre a formação do universo", "D) Teoria sobre a mecânica quântica"]
+            },
+            {
+                pergunta: "Qual é a distância aproximada entre a Terra e o Sol?",
+                opcoes: ["A) 149 milhões de quilômetros", "B) 93 milhões de quilômetros", "C) 200 milhões de quilômetros", "D) 400 milhões de quilômetros"]
+            },
+            {
+                pergunta: "Quem é considerado o pai da física moderna?",
+                opcoes: ["A) Isaac Newton", "B) Albert Einstein", "C) Galileo Galilei", "D) Niels Bohr"]
+            },
+            {
+                pergunta: "Qual é o nome da teoria de Albert Einstein que explica a gravidade?",
+                opcoes: ["A) Teoria da Relatividade Geral", "B) Teoria Quântica", "C) Teoria da Gravitação Universal", "D) Teoria das Cordas"]
+            },
+            {
+                pergunta: "Qual é o nome da teoria científica que explica a origem do universo?",
+                opcoes: ["A) Teoria da Evolução", "B) Teoria da Relatividade", "C) Teoria do Big Bang", "D) Teoria da Geração Espontânea"]
+            },
+            {
+                pergunta: "Quem foi o primeiro explorador a alcançar o Polo Sul?",
+                opcoes: ["A) Robert Falcon Scott", "B) Ernest Shackleton", "C) Roald Amundsen", "D) Christopher Columbus"]
+            },
+            {
+                pergunta: "Em que ano foi criada a Organização das Nações Unidas (ONU)?",
+                opcoes: ["A) 1945", "B) 1950", "C) 1939", "D) 1921"]
+            },
+            {
+                pergunta: "Quem desenvolveu a teoria da evolução das espécies por seleção natural?",
+                opcoes: ["A) Charles Darwin", "B) Gregor Mendel", "C) Jean-Baptiste Lamarck", "D) Alfred Russel Wallace"]
+            },
+            {
+                pergunta: "Qual é o nome do físico que formulou a teoria da mecânica quântica?",
+                opcoes: ["A) Niels Bohr", "B) Albert Einstein", "C) Max Planck", "D) Werner Heisenberg"]
+            },
+            {
+                pergunta: "Qual é o nome do processo de formação de uma estrela?",
+                opcoes: ["A) Fusão nuclear", "B) Nebulosa", "C) Supernova", "D) Nuvem de gás"]
+            },
+            {
+                pergunta: "Qual é a maior cadeia montanhosa do mundo?",
+                opcoes: ["A) Cordilheira dos Andes", "B) Montanhas Rochosas", "C) Himalaias", "D) Alpes"]
+            },
+            {
+                pergunta: "Quem inventou o avião?",
+                opcoes: ["A) Charles Lindbergh", "B) Wright Brothers (Irmãos Wright)", "C) Alberto Santos-Dumont", "D) Leonardo da Vinci"]
+            },
+            {
+                pergunta: "Qual é o nome do teorema que define a relação entre os lados de um triângulo retângulo?",
+                opcoes: ["A) Teorema de Pitágoras", "B) Teorema de Fermat", "C) Teorema de Gauss", "D) Teorema de Euclides"]
+            },
+            {
+                pergunta: "Qual é o elemento químico mais abundante no universo?",
+                opcoes: ["A) Oxigênio", "B) Hidrogênio", "C) Carbono", "D) Nitrogênio"]
+            },
+            {
+                pergunta: "Em que ano o Brasil se tornou uma república?",
+                opcoes: ["A) 1888", "B) 1890", "C) 1889", "D) 1891"]
+            },
+            {
+                pergunta: "Quem foi o responsável pela teoria da psicanálise?",
+                opcoes: ["A) Carl Jung", "B) Sigmund Freud", "C) Erik Erikson", "D) Abraham Maslow"]
+            },
+            {
+                pergunta: "Qual é o nome do maior deserto quente do mundo?",
+                opcoes: ["A) Deserto de Atacama", "B) Deserto do Saara", "C) Deserto de Gobi", "D) Deserto de Kalahari"]
+            },
+            {
+                pergunta: "Qual é o nome da teoria que defende que a Terra é o centro do universo?",
+                opcoes: ["A) Teoria heliocêntrica", "B) Teoria geocêntrica", "C) Teoria de Copérnico", "D) Teoria do big bang"]
+            },
+            {
+                pergunta: "Quem foi o criador da primeira vacina?",
+                opcoes: ["A) Louis Pasteur", "B) Edward Jenner", "C) Albert Calmette", "D) Alexander Fleming"]
+            },
+            {
+                pergunta: "Qual é a maior floresta tropical do mundo?",
+                opcoes: ["A) Floresta Amazônica", "B) Floresta de Borneo", "C) Floresta do Congo", "D) Floresta de Taiga"]
+            },
+            {
+                pergunta: "O que é o Bosão de Higgs?",
+                opcoes: ["A) Partícula subatômica", "B) Tipo de estrela", "C) Tipo de onda gravitacional", "D) Substância escura"]
+            },
+            {
+                pergunta: "Quem foi o responsável pela criação da teoria da relatividade?",
+                opcoes: ["A) Isaac Newton", "B) Albert Einstein", "C) Galileo Galilei", "D) Niels Bohr"]
+            }
+        ];
+
+        const spinBtn = document.getElementById('spinBtn');
+        const perguntaElement = document.getElementById('pergunta');
+        const opcoesElement = document.getElementById('opcoes');
+
+        spinBtn.addEventListener('click', () => {
+            const perguntaRandom = perguntasDificil[Math.floor(Math.random() * perguntasDificil.length)];
+            perguntaElement.textContent = perguntaRandom.pergunta;
+            opcoesElement.innerHTML = perguntaRandom.opcoes.map(opcao => `<p>${opcao}</p>`).join('');
+        });
+    </script>
+</body>
+</html>

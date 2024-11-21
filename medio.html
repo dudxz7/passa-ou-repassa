@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta - Médio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/passa2013.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Roleta de Perguntas - Nível Médio</h1><br>
+        <div class="roleta">
+            <div class="pergunta" id="pergunta"></div>
+            <div id="opcoes" class="opcoes"></div>
+        </div>
+        <button id="spinBtn">Girar a Roleta</button>
+        <a href="dificuldade.html" class="back-link">
+            <img src="img/anterior.png" alt="Voltar" class="back-icon"> Voltar
+        </a>
+    </div>
+
+    <script>
+        const perguntasMedio = [
+            { pergunta: "Qual é a fórmula da água?", opcoes: ["A) H2O", "B) CO2", "C) O2", "D) NaCl"] },
+            { pergunta: "Quem foi o autor de 'O Primo Basílio'?", opcoes: ["A) Machado de Assis", "B) José de Alencar", "C) Jorge Amado", "D) José Saramago"] },
+            { pergunta: "Qual é o maior planeta do sistema solar?", opcoes: ["A) Marte", "B) Júpiter", "C) Saturno", "D) Vênus"] },
+            { pergunta: "Em que ano o homem pisou na Lua pela primeira vez?", opcoes: ["A) 1969", "B) 1971", "C) 1959", "D) 1981"] },
+            { pergunta: "Quem pintou a Mona Lisa?", opcoes: ["A) Vincent van Gogh", "B) Pablo Picasso", "C) Leonardo da Vinci", "D) Michelangelo"] },
+            { pergunta: "Quem escreveu 'Dom Casmurro'?", opcoes: ["A) Jorge Amado", "B) Machado de Assis", "C) Clarice Lispector", "D) Monteiro Lobato"] },
+            { pergunta: "O que é a água composta quimicamente?", opcoes: ["A) H2O", "B) CO2", "C) O2", "D) H2SO4"] },
+            { pergunta: "Qual é o maior oceano do mundo?", opcoes: ["A) Oceano Atlântico", "B) Oceano Índico", "C) Oceano Ártico", "D) Oceano Pacífico"] },
+            { pergunta: "Qual é o símbolo químico do ouro?", opcoes: ["A) Au", "B) Ag", "C) Fe", "D) Cu"] },
+            { pergunta: "Qual é a cor da bandeira da França?", opcoes: ["A) Azul, branco e vermelho", "B) Verde e amarelo", "C) Vermelho e preto", "D) Azul e verde"] },
+            { pergunta: "Quem foi o primeiro presidente dos Estados Unidos?", opcoes: ["A) George Washington", "B) Abraham Lincoln", "C) Thomas Jefferson", "D) John Adams"] },
+            { pergunta: "Qual é a principal fonte de energia do Sol?", opcoes: ["A) Fusão nuclear", "B) Fissão nuclear", "C) Energia solar", "D) Energia térmica"] },
+            { pergunta: "Quem descobriu a penicilina?", opcoes: ["A) Albert Einstein", "B) Louis Pasteur", "C) Alexander Fleming", "D) Marie Curie"] },
+            { pergunta: "Qual é o maior continente do planeta?", opcoes: ["A) África", "B) Ásia", "C) América", "D) Europa"] },
+            { pergunta: "O que é um átomo?", opcoes: ["A) A menor partícula de um elemento", "B) Uma célula", "C) Um tipo de molécula", "D) Um tipo de vírus"] },
+            { pergunta: "Quem escreveu 'A Moreninha'?", opcoes: ["A) Machado de Assis", "B) José de Alencar", "C) Monteiro Lobato", "D) Raul Pompeia"] },
+            { pergunta: "Qual é a principal função do fígado no corpo humano?", opcoes: ["A) Produção de hormônios", "B) Filtragem do sangue", "C) Produção de glóbulos vermelhos", "D) Digestão de alimentos"] },
+            { pergunta: "Quem foi o líder da Revolução Francesa?", opcoes: ["A) Napoleão Bonaparte", "B) Robespierre", "C) Georges Danton", "D) Luiz XVI"] },
+            { pergunta: "Qual é o nome do maior rio do Brasil?", opcoes: ["A) Rio São Francisco", "B) Rio Amazonas", "C) Rio Paraná", "D) Rio Tocantins"] },
+            { pergunta: "Quem foi o responsável pela teoria da relatividade?", opcoes: ["A) Isaac Newton", "B) Albert Einstein", "C) Galileu Galilei", "D) Nikola Tesla"] },
+            { pergunta: "Em que ano o Brasil se tornou independente?", opcoes: ["A) 1500", "B) 1822", "C) 1889", "D) 1930"] },
+            { pergunta: "Qual é o nome da capital da Austrália?", opcoes: ["A) Sydney", "B) Melbourne", "C) Canberra", "D) Perth"] },
+            { pergunta: "Quem inventou o avião?", opcoes: ["A) Albert Einstein", "B) Thomas Edison", "C) Irmãos Wright", "D) Alexander Graham Bell"] },
+            { pergunta: "Qual é o maior animal terrestre?", opcoes: ["A) Elefante africano", "B) Girafa", "C) Urso polar", "D) Rinoceronte"] },
+            { pergunta: "Qual é o principal gás responsável pelo efeito estufa?", opcoes: ["A) Oxigênio", "B) Nitrogênio", "C) Carbono", "D) Dióxido de carbono"] },
+            { pergunta: "Quantos continentes existem?", opcoes: ["A) 5", "B) 6", "C) 7", "D) 8"] },
+            { pergunta: "Quem pintou 'A Última Ceia'?", opcoes: ["A) Leonardo da Vinci", "B) Michelangelo", "C) Rafael", "D) Van Gogh"] },
+            { pergunta: "Quem escreveu 'O Primo Basílio'?", opcoes: ["A) José de Alencar", "B) Machado de Assis", "C) Eça de Queirós", "D) Jorge Amado"] },
+            { pergunta: "Qual é o nome do maior oceano do planeta?", opcoes: ["A) Oceano Atlântico", "B) Oceano Pacífico", "C) Oceano Índico", "D) Oceano Ártico"] },
+            { pergunta: "Quem foi o inventor da lâmpada elétrica?", opcoes: ["A) Nikola Tesla", "B) Thomas Edison", "C) Albert Einstein", "D) Isaac Newton"] },
+            { pergunta: "Qual é o nome da maior cadeia de montanhas do mundo?", opcoes: ["A) Andes", "B) Himalaias", "C) Alpes", "D) Apalaches"] },
+            { pergunta: "Em que ano a Segunda Guerra Mundial começou?", opcoes: ["A) 1914", "B) 1939", "C) 1941", "D) 1945"] },
+            { pergunta: "Qual é o elemento químico representado pelo símbolo O?", opcoes: ["A) Ouro", "B) Oxigênio", "C) Ósmio", "D) Ozônio"] },
+            { pergunta: "Quem escreveu 'Memórias Póstumas de Brás Cubas'?", opcoes: ["A) Machado de Assis", "B) José de Alencar", "C) Lima Barreto", "D) Raul Pompeia"] }
+        ];
+
+        const spinBtn = document.getElementById('spinBtn');
+        const perguntaElement = document.getElementById('pergunta');
+        const opcoesElement = document.getElementById('opcoes');
+
+        spinBtn.addEventListener('click', () => {
+            const perguntaRandom = perguntasMedio[Math.floor(Math.random() * perguntasMedio.length)];
+            perguntaElement.textContent = perguntaRandom.pergunta;
+            opcoesElement.innerHTML = perguntaRandom.opcoes.map(opcao => `<p>${opcao}</p>`).join('');
+        });
+    </script>
+</body>
+</html>
