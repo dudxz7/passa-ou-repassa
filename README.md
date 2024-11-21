@@ -1,4 +1,4 @@
-# Projeto "Passa ou Repassa"
+<h1 align="center">Projeto "Passa ou Repassa"</h1>
 
 Este é um projeto de um jogo de perguntas e respostas, inspirado no clássico jogo de perguntas "Passa ou Repassa". O objetivo do projeto é permitir que os jogadores escolham o nível de dificuldade das perguntas e façam um sorteio para responder questões relacionadas a diversos temas, com diferentes níveis de dificuldade.
 
